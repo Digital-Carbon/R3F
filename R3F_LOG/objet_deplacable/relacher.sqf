@@ -3,10 +3,11 @@
 	Allows selling of crates at the wastedump. Based on the origional script
 	that can be found using the links in the Readme.md
 	Shows Toasts and deletes the crate after adding the money and respect to the player.
+	Public Variables fixed by [FPS]Kuplion. Tks bby.
 **/
 
-private _useInfiSTAR = true;	// If you use infiSTAR, set this to true to have the crate selling logged in infiSTAR_Logs
-private _convenience = 0.9;	// Change this to what ever you want. Default = 0.9. 0.9 = 10% taken from the earnings for convenience.
+private _useInfiSTAR = true; 	// If you use infiSTAR, set this to true to have the crate selling logged in infiSTAR_Logs
+private _convenience = 0.9;		// Change this to what ever you want. Default = 0.9. 0.9 = 10% taken from the earnings for convenience.
 private _crateList = [	
 		// I added this because people add things to the Movable Objects thing in R3F that aren't crates.
 		// This array prevents people from selling a car by accident.
@@ -38,15 +39,13 @@ else
 {
 	R3F_LOG_mutex_local_verrou = true;
 	
-	// Beginning of Crate Selling Script.
-	
 	private _foundTrader = false;
 	{
 		_foundTrader = true;
 	} forEach nearestObjects [player, ["Exile_Trader_WasteDump"], 12]; // Distance to the trader. Default = 12.
 
 	if (_foundTrader) then {
-		
+			
 		private _target = player;
 		private _targetUID = getPlayerUID player;
 		private _targetName = name player;
@@ -73,18 +72,18 @@ else
 		
 		private _cash = player getVariable ["ExileMoney", 0]; 
 		private _crateCash = _crate getVariable ["ExileMoney", 0];
-		private _currentRespect = player getVariable ["ExileScore", 0]; 
+		private _currentRespect = ExileClientPlayerScore; 
 		private _overallCash = round (_cash+_crateCash);
 		private _addedRev = round (_newrevenue+_overallCash);
 		private _addedRes = round (_currentRespect+_revrespect);
 				
 		_target setVariable ["ExileMoney",_addedRev, true];  
 			
-		_target setVariable ['ExileScore', _addedRes, true];  
+		//_target setVariable ['ExileScore', _addedRes, true];  
 			
 		_target setVariable['PLAYER_STATS_VAR',[_target getVariable ['ExileMoney', 0],_addedRes],true];  
 		ExileClientPlayerScore = _addedRes;  
-		(owner _target) publicVariableClient 'ExileClientPlayerScore';  
+		//(owner _target) publicVariableClient 'ExileClientPlayerScore';  
 		
 		R3FCrateSale = [_target, _targetUID, _addedRev, _addedRes];
 		publicVariableServer "R3FCrateSale"; 
@@ -106,8 +105,6 @@ else
 		
 		deleteVehicle _crate;
 	};
-	
-	// End of Crate Selling Script.
 	
 	R3F_LOG_joueur_deplace_objet = objNull;
 	sleep 0.25;
