@@ -53,6 +53,9 @@ R3F_LOG_CFG_can_transport_cargo = R3F_LOG_CFG_can_transport_cargo +
 [
 	// e.g. : ["MyTransporterClassName1", itsCapacity], ["MyTransporterClassName2", itsCapacity]
 
+	["Exile_Boat_SDV_CSAT", 25],
+	["Exile_Boat_SDV_Digital", 25],
+	["Exile_Boat_SDV_Grey", 25],
 	["Exile_Car_HEMMT", 85],
 	["Exile_Car_Zamak", 81],
 	["Exile_Car_Tempest", 82],
@@ -258,7 +261,8 @@ R3F_LOG_CFG_can_transport_cargo = R3F_LOG_CFG_can_transport_cargo +
 	["rhsusf_M1230a1_usarmy_d", 50],
 	["rhsusf_M1230_M2_usarmy_wd", 50],
 	["rhsusf_M1230_MK19_usarmy_wd", 50],
-	["rhsusf_M1230a1_usarmy_wd", 50]
+	["rhsusf_M1230a1_usarmy_wd", 50],
+	["I_LT_01_scout_F", 50]
 ];
 
 R3F_LOG_CFG_can_be_transported_cargo = R3F_LOG_CFG_can_be_transported_cargo +
