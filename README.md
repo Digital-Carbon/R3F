@@ -15,10 +15,10 @@ http://team-r3f.org/madbull/logistics/EN_DOCUMENTATION.pdf
 Copy the R3F_LOG folder into your mission file (Exile.Mapname.pbo) after de-pboing it of course.
 
 Create a file in your mission file (Exile.mapname.pbo) called init.sqf, or if you already have an init.sqf add the following:
-execVM "R3F_LOG\init.sqf";
+### execVM "R3F_LOG\init.sqf";
 
 Then in the description.ext add the following outside of any brackets:
-#include "R3F_LOG\desc_include.h"
+### #include "R3F_LOG\desc_include.h"
 
 ## Crate Selling Install
 Pack the gadd_extras folder into a PBO and drop it into your @ExileServer\addons folder.
